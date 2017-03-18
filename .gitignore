@@ -5,6 +5,13 @@ ehthumbs.db
 # Folder config file
 Desktop.ini
 
+#RestIt Specific
+node_modules
+.idea
+db.json
+routers/*.js
+
+
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 

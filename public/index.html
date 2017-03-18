@@ -1,0 +1,92 @@
+<html lang="en" ng-app="restItApp" ng-cloak>
+
+<head>
+    <!--Vendor CSS-->
+    <link rel="stylesheet" href="/vendor/angular-material/angular-material.css">
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="stylesheets/index.css">
+
+    <!--Favicon-->
+    <link rel="icon" href="icons/ic_wb_cloudy_black_24dp_2x.png">
+    <title>Rest it...</title>
+</head>
+
+<body layout="row" ng-controller="RestItCtrl">
+<div layout="column" class="relative rest-it" layout-fill role="main">
+    <!--Add Button for adding rest endpoints-->
+    <md-button md-whiteframe="20" class="md-fab md-fab-bottom-right" aria-label="Add Endpoint"
+               data-ng-click="showAdd($event)">
+        <ng-md-icon icon="add"></ng-md-icon>
+    </md-button>
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h3>Rest It...</h3>
+            <span flex></span>
+            <md-button aria-label="Search here for saved endpoints" ng-click="showSearch = !showSearch">
+                <ng-md-icon icon="search"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-toolbar class="md-hue-1" data-ng-show="showSearch">
+        <div class="md-toolbar-tools">
+            <div flex="20"></div>
+            <md-input-container md-theme="input" flex>
+                <label>&nbsp;</label>
+                <input ng-model="search" placeholder="search...">
+            </md-input-container>
+            <div flex="20"></div>
+        </div>
+    </md-toolbar>
+
+    <md-content layout="row" flex md-scroll-y>
+        <div flex></div>
+        <md-list class="endPointList">
+            <md-card data-ng-if="availableEndpoints.length===0" md-whiteframe="12">
+                <md-card-content layout="row" layout-align="center center">
+                    <p>No Endpoint created! Click add button to create a new one.</p>
+                </md-card-content>
+            </md-card>
+
+            <md-list-item class="md-2-line"
+                          ng-repeat="endpoint in availableEndpoints | filter:search">
+                <div class="md-list-item-text">
+                    <md-card class="" md-whiteframe="4"
+                             md-theme="default">
+                        <md-card-content>
+                            <h1>Endpoint: /{{endpoint.endpoint}}</h1>
+                            <h2>Method: {{endpoint.method}}</h2>
+                            <h2>Response: <br>
+                                <p>{{endpoint.response}}</p>
+                            </h2>
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button data-ng-click="removeEndpoint(endpoint)">Remove</md-button>
+                        </md-card-actions>
+                    </md-card>
+                </div>
+            </md-list-item>
+        </md-list>
+
+        <div flex></div>
+    </md-content>
+</div>
+
+<script src="/vendor/angular/angular.js"></script>
+<script src="/vendor/angular-animate/angular-animate.js"></script>
+<script src="/vendor/angular-aria/angular-aria.js"></script>
+<script src="/vendor/angular-messages/angular-messages.js"></script>
+
+
+<!-- Angular Material Library -->
+<script src="/vendor/angular-material/angular-material.js"></script>
+<script src="/vendor/angular-material-icons/angular-material-icons.min.js"></script>
+
+<!-- Index page js -->
+<script src="js/index.js"></script>
+
+</body>
+
+</html>

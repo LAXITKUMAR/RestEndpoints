@@ -1,0 +1,40 @@
+<md-dialog aria-label="Enter server end point details">
+    <md-content class="md-padding">
+        <form name="restEndPointForm" novalidate data-ng-submit="restEndPointForm.$valid && answer('create')">
+            <div layout="row">
+                <md-input-container flex>
+                    <label>Method</label>
+                    <md-select name="method" data-ng-model="restEndPoint.method" required>
+                        <md-option value="get">Get</md-option>
+                        <md-option value="post">Post</md-option>
+                        <md-option value="put">Put</md-option>
+                        <md-option value="delete">Delete</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container flex>
+                    <label>Endpoint</label>
+                    <input name="endpoint" data-ng-model="restEndPoint.endpoint" data-ng-pattern="/^\w+$/" required>
+                    <div data-ng-messages="restEndPointForm.endpoint.$error" role="alert">
+                        <div data-ng-message="required">Endpoint is required</div>
+                        <div data-ng-message="pattern">Endpoint should be alphanumeric</div>
+                    </div>
+                </md-input-container>
+            </div>
+
+            <div layout="row">
+                <md-input-container flex class="md-block">
+                    <label>Response</label>
+                    <textarea data-ng-model="restEndPoint.response" md-select-on-focus rows="5"></textarea>
+                </md-input-container>
+            </div>
+        </form>
+    </md-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button data-ng-click="answer('cancel')"> Cancel</md-button>
+        <md-button data-ng-disabled="!restEndPointForm.$valid" data-ng-click="answer('create',restEndPointForm)"
+                   class="md-primary"> Create
+        </md-button>
+    </div>
+</md-dialog>
