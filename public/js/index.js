@@ -1,10 +1,10 @@
-var app = angular.module('restItApp', ['ngMaterial', 'ngMdIcons', 'ngMessages']);
+var app = angular.module('restEndpointsApp', ['ngMaterial', 'ngMdIcons', 'ngMessages']);
 
 app.run(function ($rootScope) {
     $rootScope.availableEndpoints = [];
 });
 
-app.controller('RestItCtrl', ['$rootScope', '$scope', '$http', '$mdDialog', '$mdToast', function ($rootScope, $scope, $http, $mdDialog, $mdToast) {
+app.controller('RestEndpointsCtrl', ['$rootScope', '$scope', '$http', '$mdDialog', '$mdToast', function ($rootScope, $scope, $http, $mdDialog, $mdToast) {
     $http.get('ENDPOINTAPP__GET__AVAILABLEENDPOINTS').then(function (response) {
         $rootScope.availableEndpoints = response.data;
     });
