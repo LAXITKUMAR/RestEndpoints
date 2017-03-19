@@ -5,11 +5,12 @@ ehthumbs.db
 # Folder config file
 Desktop.ini
 
-#RestIt Specific
+#RestEndpoints Specific
 node_modules
 .idea
 db.json
 routers/*.js
+.keep
 
 
 # Recycle Bin used on file shares
