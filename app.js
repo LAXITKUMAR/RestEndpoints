@@ -29,10 +29,14 @@ app.use(function (req, res, next) {
 db.defaults({availableEndpoints: []})
     .value();
 
-fs.readdirSync(routePath).forEach(function (file) {
-    var route = routePath + file;
-    require(route)(app);
-});
+if (!fs.existsSync(routePath)) {
+    fs.mkdirSync(routePath);
+} else {
+    fs.readdirSync(routePath).forEach(function (file) {
+        var route = routePath + file;
+        require(route)(app);
+    });
+}
 
 
 //--------------------- Application Specific endpoint Reserve Endpoints-------------------------------------------------------------
@@ -126,8 +130,8 @@ app.get('/', function (req, res) {
 });
 
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 7777);
 app.listen(app.get('port'), function () {
-    console.log('Rest It... Server is listening on port: ' + app.get('port'))
+    console.log('Rest Endpoints... Server is listening on port: ' + app.get('port'))
 });
 

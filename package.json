@@ -1,7 +1,7 @@
 {
-  "name": "RestIt",
+  "name": "RestEndpoints",
   "version": "1.0.0",
-  "description": "Rest it is app for creating quick rest endpoints that can be used by frontend developers for testing there code.",
+  "description": "Rest Endpoints is app for creating quick rest endpoints that can be used by frontend developers for testing there code.",
   "main": "app.js",
   "scripts": {
     "start": "./node_modules/.bin/env-cmd ./.config node app.js",
