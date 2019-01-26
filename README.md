@@ -1,6 +1,14 @@
 # RestEndpoints
 Simple app to create simple rest endpoints in seconds
 
+Just bring the application up and use the UI to create the rest points.
+You can dynamically create, edit and delete you end points with zero configuration.
+
+# Application
+This app can be useful to frontened delvelopers to quickly mocking the rest APIs without any configuration.
+You can mock common rest methods like post, get , put, delete etc.
+You need not to add any mocking adaptor code to your application codebase. Your application code remains clean :-)
+
 # Get Started
 - 1.Open a terminal in root folder and run ``` npm install ```
 - 2.Run ``` npm start ```
